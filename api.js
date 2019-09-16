@@ -1,8 +1,17 @@
 
 let query = prompt("enter query");
 let minDate = prompt("enter min pub year");
+if (minDate === "" || minDate < 1000 || maxDate > 9999) {
+    minDate = 1000;
+}
 let maxDate = prompt("enter max pub year");
-let displayNum = prompt("how many articles to return");
+if (maxDate === "" || maxDate > 9999 || maxDate < 1000) {
+    maxDate = 2019;
+}
+let displayNum = prompt("how many articles to return (deafult 10)");
+if (displayNum === "" ||displayNum < 0) {
+    displayNum= 10;
+}
 
 
 newurl = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + query + "&begin_date=" + minDate + "0101&end_date=" + maxDate + "1231&sort=relevance" + "&api-key=eknM4Z7Rm1Z1fL6mj81V5sn18rQehL6H";
