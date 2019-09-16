@@ -20,7 +20,13 @@ $.ajax({
         let a = $("<a>");
         a.text(text);
         a.attr("href", newURL);
+        let p = $("<p>");
+        let date = $("<p>");
+        p.text(response.response.docs[i].snippet);
+        date.text(response.response.docs[i].pub_date);
         articleDiv.append(a);
+        articleDiv.append(date);
+        articleDiv.append(p);
         $("#main").append(articleDiv);
     }
 });
